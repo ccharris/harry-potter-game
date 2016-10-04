@@ -348,7 +348,7 @@ public class Events {
 	        		 );
 	         char potionsQuestionOne = CIN();
             if(potionsQuestionOne == 'b'){
-            	System.out.println("Correct, " + playerHouse + " gets 10 points!");
+            	System.out.println("\tCorrect, " + playerHouse + " gets 10 points!\n");
             	if(playerHouse == "Gryffindor"){
             		gryffPoints += 10;
             	}else if(playerHouse == "Ravenclaw"){
@@ -374,7 +374,8 @@ public class Events {
             		huffPoints += 10;
             		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
             	}
-            } else {
+            } else if (potionsQuestionOne == 'a' || potionsQuestionOne == 'c'){
+            	System.out.println("\tIncorrect.\n");
             	int randomRoll = randomHouse();
             	if(randomRoll == 1){
             		gryffPoints += 10;
@@ -389,7 +390,11 @@ public class Events {
             		huffPoints += 10;
             		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
             	}
-            }
+            } else {
+            		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+            	}
+            
+             gamesLeft -= 1;
 	         firstPotions = false;
 	         secondPotions = true;
          } else if (secondPotions){
@@ -405,7 +410,7 @@ public class Events {
      	        		 );
      	         char potionsQuestionOne = CIN();
                  if(potionsQuestionOne == 'a'){
-                 	System.out.println("Correct, " + playerHouse + " gets 10 points!");
+                 	System.out.println("\tCorrect, " + playerHouse + " gets 10 points!\n");
                  	if(playerHouse == "Gryffindor"){
                  		gryffPoints += 10;
                  	}else if(playerHouse == "Ravenclaw"){
@@ -431,7 +436,7 @@ public class Events {
                  		huffPoints += 10;
                  		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
                  	}
-                 } else {
+                 } else if (potionsQuestionOne == 'b' || potionsQuestionOne == 'c'){
                  	int randomRoll = randomHouse();
                  	if(randomRoll == 1){
                  		gryffPoints += 10;
@@ -446,8 +451,11 @@ public class Events {
                  		huffPoints += 10;
                  		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
                  	}
-                 }
-        	 
+                 } else {
+                		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                	}
+                 
+             gamesLeft -= 1;
         	 secondPotions = false;
         	 thirdPotions = true;
          } else if (thirdPotions){
@@ -463,7 +471,7 @@ public class Events {
      	        		 );
      	         char potionsQuestionOne = CIN();
                  if(potionsQuestionOne == 'b'){
-                 	System.out.println("Correct, " + playerHouse + " gets 20 points!");
+                 	System.out.println("\tCorrect, " + playerHouse + " gets 20 points!\n");
                  	if(playerHouse == "Gryffindor"){
                  		gryffPoints += 20;
                  	}else if(playerHouse == "Ravenclaw"){
@@ -489,7 +497,8 @@ public class Events {
                  		huffPoints += 20;
                  		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
                  	}
-                 } else {
+                 } else if (potionsQuestionOne == 'a' || potionsQuestionOne == 'c'){
+                	 System.out.println("\tIncorrect.\n");
                  	int randomRoll = randomHouse();
                  	if(randomRoll == 1){
                  		gryffPoints += 20;
@@ -504,11 +513,15 @@ public class Events {
                  		huffPoints += 20;
                  		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
                  	}
+                 } else {
+                	 System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
                  }
+             gamesLeft -= 1;
         	 thirdPotions = false;
          } else {
-        	 System.out.println("There are no more potions problems for you to solve for house points!");
+        	 System.out.println("\tThere are no more potions problems for you to solve for house points!\n");
          }
+         	displayHousePoints();
          while(WhatToDo != 'g' && WhatToDo != 'c' && WhatToDo !='d' && WhatToDo !='f' && WhatToDo !='r')
          {                
                System.out.print(
@@ -555,7 +568,7 @@ public class Events {
         	        		 );
         	         char potionsQuestionOne = CIN();
                     if(potionsQuestionOne == 'a'){
-                    	System.out.println("Correct, " + playerHouse + " gets 10 points!");
+                    	System.out.println("\tCorrect, " + playerHouse + " gets 10 points!\n");
                     	if(playerHouse == "Gryffindor"){
                     		gryffPoints += 10;
                     	}else if(playerHouse == "Ravenclaw"){
@@ -581,7 +594,8 @@ public class Events {
                     		huffPoints += 10;
                     		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
                     	}
-                    } else {
+                    } else if (potionsQuestionOne == 'b' || potionsQuestionOne == 'c'){
+                    	System.out.println("\tIncorrect\n");
                     	int randomRoll = randomHouse();
                     	if(randomRoll == 1){
                     		gryffPoints += 10;
@@ -595,82 +609,91 @@ public class Events {
                     	}else if(randomRoll == 4){
                     		huffPoints += 10;
                     		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                    	} 
+                    } else {
+                    		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
                     	}
-                    }
+                    	
+                    
+                    gamesLeft -= 1;
         	         firstCharms = false;
         	         secondCharms = true;
                  } else if (secondCharms){
                 	 System.out.println(
              	        	"\t It's a few weeks into charms class and you're feeling pretty confident with the subject overall,\n"
-             	        	+ "\tand Professor Snout, who you've come to really like, asks a pretty tough question \n"
-             	        	+ "\tof the class. What is taken from the stomach of a goat and will save you from most poisons?\n "
+             	        	+ "\tand Professor Flitwick, who you've come to really like, asks a pretty tough question \n"
+             	        	+ "\tof the class. What would happen if you cast a forceful densaugeo?\n "
              	        	+ "\tWhat is your action?\n"
-             	        	+ "\ta) Answer bezoar \n "
-             	        	+ "\tb) Answer Draught of Living Death\n"
-             	        	+ "\tc) Answer felix felicis \n"
-             	        	+ "\td) Don't answer\n"
-             	        		 );
-             	         char potionsQuestionOne = CIN();
-                         if(potionsQuestionOne == 'a'){
-                         	System.out.println("Correct, " + playerHouse + " gets 10 points!");
-                         	if(playerHouse == "Gryffindor"){
-                         		gryffPoints += 10;
-                         	}else if(playerHouse == "Ravenclaw"){
-                         		ravePoints += 10;
-                         	}else if(playerHouse == "Slytherin"){
-                         		slythPoints += 10;
-                         	}else if(playerHouse == "Hufflepuff"){
-                         		huffPoints += 10;
-                         	}
-                         } else if (potionsQuestionOne == 'd'){
-                         	System.out.println("\tBecause you hesistated...\n");
-                         	int randomRoll = randomHouse();
-                         	if(randomRoll == 1){
-                         		gryffPoints += 10;
-                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
-                         	}else if(randomRoll == 2){
-                         		ravePoints += 10;
-                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
-                         	}else if(randomRoll == 3){
-                         		slythPoints += 10;
-                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
-                         	}else if(randomRoll == 4){
-                         		huffPoints += 10;
-                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
-                         	}
-                         } else {
-                         	int randomRoll = randomHouse();
-                         	if(randomRoll == 1){
-                         		gryffPoints += 10;
-                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
-                         	}else if(randomRoll == 2){
-                         		ravePoints += 10;
-                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
-                         	}else if(randomRoll == 3){
-                         		slythPoints += 10;
-                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
-                         	}else if(randomRoll == 4){
-                         		huffPoints += 10;
-                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
-                         	}
-                         }
-                	 
-                	 secondPotions = false;
-                	 thirdPotions = true;
-                 } else if (thirdPotions){
-                	 System.out.println(
-             	        	"\t You've been in potions for several months now and you really love the subject, today Professor Snout,"
-             	        	+ "\t an overall solid professor, who always has an interesting new topic to discuss, asks the class \n"
-             	        	+ "\ta question. What is the name of the world's strongest love potion?\n "
-             	        	+ "\tWhat is your action?\n"
-             	        	+ "\ta) Answer felix felicis \n "
-             	        	+ "\tb) Answer amortentia\n"
-             	        	+ "\tc) Answer amoratius \n"
+             	        	+ "\ta) Answer an invisible wall would knock the person over \n "
+             	        	+ "\tb) Answer the person affected would have their teeth grow quickly\n"
+             	        	+ "\tc) Answer a sproutling would pop up from that destination \n"
              	        	+ "\td) Don't answer\n"
              	        		 );
              	         char potionsQuestionOne = CIN();
                          if(potionsQuestionOne == 'b'){
-                         	System.out.println("Correct, " + playerHouse + " gets 20 points!");
+                         	System.out.println("\tCorrect, " + playerHouse + " gets 10 points!\n");
+                         	if(playerHouse == "Gryffindor"){
+                         		gryffPoints += 10;
+                         	}else if(playerHouse == "Ravenclaw"){
+                         		ravePoints += 10;
+                         	}else if(playerHouse == "Slytherin"){
+                         		slythPoints += 10;
+                         	}else if(playerHouse == "Hufflepuff"){
+                         		huffPoints += 10;
+                         	}
+                         } else if (potionsQuestionOne == 'd'){
+                         	System.out.println("\tBecause you hesistated...\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 10;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 10;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 10;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 10;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                         	}
+                         } else if (potionsQuestionOne == 'a' || potionsQuestionOne == 'c'){
+                        	 System.out.println("\tIncorrect.\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 10;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 10;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 10;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 10;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                         	}
+                         } else {
+                        		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                        	}
+                         
+                         gamesLeft -= 1;
+                	 secondCharms = false;
+                	 thirdCharms = true;
+                 } else if (thirdCharms){
+                	 System.out.println(
+             	        	"\t You've been in charms for several months now and you really love the subject, today Professor Flitwick,\n"
+             	        	+ "\t an overall solid professor, who always has an interesting new topic to discuss, asks the class \n"
+             	        	+ "\ta question. What is the name of the cleaning spell scourgify?\n "
+             	        	+ "\tWhat is your action?\n"
+             	        	+ "\ta) Answer causes crabs to attack the target \n "
+             	        	+ "\tb) Answer burns the target\n"
+             	        	+ "\tc) Answer cleans the target \n"
+             	        	+ "\td) Don't answer\n"
+             	        		 );
+             	         char potionsQuestionOne = CIN();
+                         if(potionsQuestionOne == 'c'){
+                         	System.out.println("\tCorrect, " + playerHouse + " gets 20 points!\n");
                          	if(playerHouse == "Gryffindor"){
                          		gryffPoints += 20;
                          	}else if(playerHouse == "Ravenclaw"){
@@ -696,7 +719,8 @@ public class Events {
                          		huffPoints += 20;
                          		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
                          	}
-                         } else {
+                         } else if (potionsQuestionOne == 'a' || potionsQuestionOne == 'b'){
+                        	 System.out.println("\tIncorrect.\n");
                          	int randomRoll = randomHouse();
                          	if(randomRoll == 1){
                          		gryffPoints += 20;
@@ -711,11 +735,16 @@ public class Events {
                          		huffPoints += 20;
                          		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
                          	}
-                         }
-                	 thirdPotions = false;
+                         } else {
+                        		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                        	}
+                         
+                         gamesLeft -= 1;
+                	 thirdCharms = false;
                  } else {
-                	 System.out.println("There are no more potions problems for you to solve for house points!");
+                	 System.out.println("\tThere are no more Charms problems for you to solve for house points!\n");
                  }
+                 displayHousePoints();
      
          while(WhatToDo != 'g' && WhatToDo != 'p' && WhatToDo !='d' && WhatToDo !='f' && WhatToDo !='r')
          {                
@@ -761,7 +790,7 @@ public class Events {
          {                
                System.out.print(
             		   "\n\n\tWhere would you like to go next?? (c)harms, (d)efense against the dark arts, (f)lying lessons,\n"
-                       		+ "\tto the (g)reat hall, or back to the common (r)oom?\n");
+                       		+ "\t (p)otions, or to the (g)reat hall?\n");
            
                WhatToDo = CIN(); 
                         
@@ -787,16 +816,206 @@ public class Events {
          char WhatToDo = '#';
 
          System.out.print(
-         "\n\n\tYou find yourself in the cool dungeons, the walls decorated by jars filled with pickled things.\n\n\n");
+         "\n\n\tYou find yourself in a room with big windows, with some interesting creatures peering out of portraits on the wall.\n "
+         + "\tYou are in defense against the dark arts class.\n\n\n");
 
-         System.out.print(
-         "\tAs you sit down, you hear someone clear their throat and you look up to see a tall thin man, he is wearing dark robes, and holds himself with confidence, you listen closely "
-         + "\tthe east and the west.\n\n");
+                 if(firstDefense){
+        	         System.out.print(
+        	        	 "\tAs you sit down, you see an energetic relatively young woman pacing up and down, waiting impatiently for all students \n"
+        	        			 + "\tto be seated. Once you all are she introduces herself as Professor Weasley\n");
+        	         System.out.println(
+        	        	"\t On your very first day of charms, Professor Weasley, in an excited and hopefuly manner, asks a question \n"
+        	        	+ "\tof the class. How many unforgivable curses are there?\n "
+        	        	+ "\tWhat is your action?\n"
+        	        	+ "\ta) Answer 4\n "
+        	        	+ "\tb) Answer 3\n"
+        	        	+ "\tc) Answer 2\n"
+        	        	+ "\td) Don't answer\n"
+        	        		 );
+        	         char potionsQuestionOne = CIN();
+                    if(potionsQuestionOne == 'b'){
+                    	System.out.println("\tCorrect, " + playerHouse + " gets 10 points!\n");
+                    	if(playerHouse == "Gryffindor"){
+                    		gryffPoints += 10;
+                    	}else if(playerHouse == "Ravenclaw"){
+                    		ravePoints += 10;
+                    	}else if(playerHouse == "Slytherin"){
+                    		slythPoints += 10;
+                    	}else if(playerHouse == "Hufflepuff"){
+                    		huffPoints += 10;
+                    	}
+                    } else if (potionsQuestionOne == 'd'){
+                    	System.out.println("\tBecause you hesistated...\n");
+                    	int randomRoll = randomHouse();
+                    	if(randomRoll == 1){
+                    		gryffPoints += 10;
+                    		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                    	}else if(randomRoll == 2){
+                    		ravePoints += 10;
+                    		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                    	}else if(randomRoll == 3){
+                    		slythPoints += 10;
+                    		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                    	}else if(randomRoll == 4){
+                    		huffPoints += 10;
+                    		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                    	}
+                    } else if(potionsQuestionOne == 'a' || potionsQuestionOne == 'c') {
+                    	System.out.println("\tIncorrect\n");
+                    	int randomRoll = randomHouse();
+                    	if(randomRoll == 1){
+                    		gryffPoints += 10;
+                    		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                    	}else if(randomRoll == 2){
+                    		ravePoints += 10;
+                    		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                    	}else if(randomRoll == 3){
+                    		slythPoints += 10;
+                    		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                    	}else if(randomRoll == 4){
+                    		huffPoints += 10;
+                    		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                    	}
+                    } else {
+                    		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                    	}
+                    
+                    gamesLeft -= 1;
+        	         firstDefense = false;
+        	         secondDefense = true;
+                 } else if (secondDefense){
+                	 System.out.println(
+             	        	"\t It's a few weeks into Defense against the Dark Arts class and you're feeling pretty confident with the subject overall,\n"
+             	        	+ "\tand Professor Weasley, who has quickly become your favorite professor, asks a pretty tough question \n"
+             	        	+ "\tof the class. Impedimenta is which of the following?\n "
+             	        	+ "\tWhat is your action?\n"
+             	        	+ "\ta) Answer jinx \n "
+             	        	+ "\tb) Answer curse\n"
+             	        	+ "\tc) Answer charm\n"
+             	        	+ "\td) Don't answer\n"
+             	        		 );
+             	         char potionsQuestionOne = CIN();
+                         if(potionsQuestionOne == 'a'){
+                         	System.out.println("\tCorrect, " + playerHouse + " gets 10 points!\n");
+                         	if(playerHouse == "Gryffindor"){
+                         		gryffPoints += 10;
+                         	}else if(playerHouse == "Ravenclaw"){
+                         		ravePoints += 10;
+                         	}else if(playerHouse == "Slytherin"){
+                         		slythPoints += 10;
+                         	}else if(playerHouse == "Hufflepuff"){
+                         		huffPoints += 10;
+                         	}
+                         } else if (potionsQuestionOne == 'd'){
+                         	System.out.println("\tBecause you hesistated...\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 10;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 10;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 10;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 10;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                         	}
+                         } else if (potionsQuestionOne == 'b' || potionsQuestionOne == 'c' ) {
+                        	 System.out.println("\tIncorrect.\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 10;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 10;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 10;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 10;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                         	}
+                         }else {
+                         		System.out.println("\tSince you didn't answer the question as asked, it didn't count.\n");
+                         	}
+                         
+                         gamesLeft -= 1;
+                	 secondDefense = false;
+                	 thirdDefense = true;
+                 } else if (thirdDefense){
+                	 System.out.println(
+             	        	"\t You've been in Defense Against the Dark Arts for several months now and you really love the subject, today Professor Weasley,\n"
+             	        	+ "\t still your absolute favorite professor, who always has an interesting new topic to discuss, asks the class \n"
+             	        	+ "\ta question. What would you say to cast the blasting curse?\n "
+             	        	+ "\tWhat is your action?\n"
+             	        	+ "\ta) Answer Confringo \n "
+             	        	+ "\tb) Answer Relashio\n"
+             	        	+ "\tc) Answer Impedimenta\n"
+             	        	+ "\td) Don't answer\n"
+             	        		 );
+             	         char potionsQuestionOne = CIN();
+                         if(potionsQuestionOne == 'a'){
+                         	System.out.println("\tCorrect, " + playerHouse + " gets 20 points!\n");
+                         	if(playerHouse == "Gryffindor"){
+                         		gryffPoints += 20;
+                         	}else if(playerHouse == "Ravenclaw"){
+                         		ravePoints += 20;
+                         	}else if(playerHouse == "Slytherin"){
+                         		slythPoints += 20;
+                         	}else if(playerHouse == "Hufflepuff"){
+                         		huffPoints += 20;
+                         	}
+                         } else if (potionsQuestionOne == 'd'){
+                         	System.out.println("\tBecause you hesistated...\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 20;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 20 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 20;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 20 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 20;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 20 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 20;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
+                         	}
+                         } else if (potionsQuestionOne == 'c' || potionsQuestionOne == 'b'){
+                        	 System.out.println("\tIncorrect.\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 20;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 20 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 20;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 20 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 20;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 20 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 20;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
+                         	}
+                         
+                        	}else {
+                        		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                        	}
+                         
+                         gamesLeft -= 1;
+                	 thirdDefense = false;
+                 } else {
+                	 System.out.println("\tThere are no more Defense Against the Dark Arts problems for you to solve for house points!\n");
+                 }
+                 displayHousePoints();
      
          while(WhatToDo != 'g' && WhatToDo != 'c' && WhatToDo !='p' && WhatToDo !='f' && WhatToDo !='r')
          {                
                System.out.print(
-            		   "\n\n\tWhere would you like to go next?? (c)harms, (d)efense against the dark arts, (f)lying lessons,\n"
+            		   "\n\n\tWhere would you like to go next?? (c)harms, (p)otions, (f)lying lessons,\n"
                        		+ "\tto the (g)reat hall, or back to the common (r)oom?\n");
            
                WhatToDo = CIN(); 
@@ -822,16 +1041,205 @@ public class Events {
          char WhatToDo = '#';
 
          System.out.print(
-         "\n\n\tYou find yourself in the cool dungeons, the walls decorated by jars filled with pickled things.\n\n\n");
+         "\n\n\tYou find yourself outside on the front lawn and it is a beautiful day for flying.\n\n\n");
 
          System.out.print(
-         "\tAs you sit down, you hear someone clear their throat and you look up to see a tall thin man, he is wearing dark robes, and holds himself with confidence, you listen closely "
-         + "\tthe east and the west.\n\n");
+         "\tAs the class files in, you all line up next to broomsticks on the ground/n");
+         
+                 if(firstFlying){
+        	         System.out.print(
+        	         "\tA very small, older witch, stride quickly on to meet you all, warning you not to touch anything!\n");
+        	         System.out.println(
+        	        	"\t On your very first day of flying, Madam Flitwick, as you've learned her name is, asks a question \n"
+        	        	+ "\tof the class. How do you get your broom into your hand?\n "
+        	        	+ "\tWhat is your action?\n"
+        	        	+ "\ta) Answer up\n "
+        	        	+ "\tb) Answer lift\n"
+        	        	+ "\tc) Answer fly\n"
+        	        	+ "\td) Don't answer\n"
+        	        		 );
+        	         char potionsQuestionOne = CIN();
+                    if(potionsQuestionOne == 'a'){
+                    	System.out.println("Correct, " + playerHouse + " gets 10 points!");
+                    	if(playerHouse == "Gryffindor"){
+                    		gryffPoints += 10;
+                    	}else if(playerHouse == "Ravenclaw"){
+                    		ravePoints += 10;
+                    	}else if(playerHouse == "Slytherin"){
+                    		slythPoints += 10;
+                    	}else if(playerHouse == "Hufflepuff"){
+                    		huffPoints += 10;
+                    	}
+                    } else if (potionsQuestionOne == 'd'){
+                    	System.out.println("\tBecause you hesistated...\n");
+                    	int randomRoll = randomHouse();
+                    	if(randomRoll == 1){
+                    		gryffPoints += 10;
+                    		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                    	}else if(randomRoll == 2){
+                    		ravePoints += 10;
+                    		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                    	}else if(randomRoll == 3){
+                    		slythPoints += 10;
+                    		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                    	}else if(randomRoll == 4){
+                    		huffPoints += 10;
+                    		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                    	}
+                    } else if (potionsQuestionOne == 'b' || potionsQuestionOne == 'c'){
+                    	System.out.println("\tIncorrect.\n");
+                    	int randomRoll = randomHouse();
+                    	if(randomRoll == 1){
+                    		gryffPoints += 10;
+                    		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                    	}else if(randomRoll == 2){
+                    		ravePoints += 10;
+                    		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                    	}else if(randomRoll == 3){
+                    		slythPoints += 10;
+                    		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                    	}else if(randomRoll == 4){
+                    		huffPoints += 10;
+                    		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                    	} 
+                    } else {
+                    		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                    	}
+                    gamesLeft -= 1;
+        	         firstFlying = false;
+        	         secondFlying = true;
+                 } else if (secondFlying){
+                	 System.out.println(
+             	        	"\t It's a few weeks into flying class and you're feeling pretty confident with the subject overall,\n"
+             	        	+ "\tand Madam Hooch, who you've come to really like, asks a pretty tough question \n"
+             	        	+ "\tof the class. Which quidditch player tries to catch the golden snitch?\n "
+             	        	+ "\tWhat is your action?\n"
+             	        	+ "\ta) Answer the chaser\n "
+             	        	+ "\tb) Answer the seeker\n"
+             	        	+ "\tc) Answer the beater\n"
+             	        	+ "\td) Don't answer\n"
+             	        		 );
+             	         char potionsQuestionOne = CIN();
+                         if(potionsQuestionOne == 'b'){
+                         	System.out.println("Correct, " + playerHouse + " gets 10 points!");
+                         	if(playerHouse == "Gryffindor"){
+                         		gryffPoints += 10;
+                         	}else if(playerHouse == "Ravenclaw"){
+                         		ravePoints += 10;
+                         	}else if(playerHouse == "Slytherin"){
+                         		slythPoints += 10;
+                         	}else if(playerHouse == "Hufflepuff"){
+                         		huffPoints += 10;
+                         	}
+                         } else if (potionsQuestionOne == 'd'){
+                         	System.out.println("\tBecause you hesistated...\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 10;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 10;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 10;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 10;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                         	}
+                         } else if (potionsQuestionOne == 'a' || potionsQuestionOne == 'c'){
+                        	 System.out.println("\tIncorrect.\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 10;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 10 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 10;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 10 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 10;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 10 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 10;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 10 points!\n");
+                         	}
+                         } else {
+                        		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                        	}
+                         
+                         gamesLeft -= 1;
+                	 secondFlying = false;
+                	 thirdFlying = true;
+                 } else if (thirdFlying){
+                	 System.out.println(
+             	        	"\t You've been in flying lessons for several months now and you really love the subject, today Madam Hooch,"
+             	        	+ "\t an overall solid professor, who always has an interesting new topic to discuss, asks the class \n"
+             	        	+ "\ta question. What is the name of the ball that beaters hit?\n "
+             	        	+ "\tWhat is your action?\n"
+             	        	+ "\ta) Answer bludger \n "
+             	        	+ "\tb) Answer quidder\n"
+             	        	+ "\tc) Answer quaffle \n"
+             	        	+ "\td) Don't answer\n"
+             	        		 );
+             	         char potionsQuestionOne = CIN();
+                         if(potionsQuestionOne == 'a'){
+                         	System.out.println("Correct, " + playerHouse + " gets 20 points!");
+                         	if(playerHouse == "Gryffindor"){
+                         		gryffPoints += 20;
+                         	}else if(playerHouse == "Ravenclaw"){
+                         		ravePoints += 20;
+                         	}else if(playerHouse == "Slytherin"){
+                         		slythPoints += 20;
+                         	}else if(playerHouse == "Hufflepuff"){
+                         		huffPoints += 20;
+                         	}
+                         } else if (potionsQuestionOne == 'd'){
+                         	System.out.println("\tBecause you hesistated...\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 20;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 20 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 20;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 20 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 20;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 20 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 20;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
+                         	}
+                         } else if (potionsQuestionOne == 'c' || potionsQuestionOne == 'b') {
+                        	 System.out.println("\tIncorrect.\n");
+                         	int randomRoll = randomHouse();
+                         	if(randomRoll == 1){
+                         		gryffPoints += 20;
+                         		System.out.println("\tSomeone from Gryffindor answered, and got Gryffindor 20 points!\n");
+                         	}else if(randomRoll == 2){
+                         		ravePoints += 20;
+                         		System.out.println("\tSomeone from Ravenclaw answered, and got Ravenclaw 20 points!\n");
+                         	}else if(randomRoll == 3){
+                         		slythPoints += 20;
+                         		System.out.println("\tSomeone from Slytherin answered, and got Slytherin 20 points!\n");
+                         	}else if(randomRoll == 4){
+                         		huffPoints += 20;
+                         		System.out.println("\tSomeone from Hufflepuff answered, and got Hufflepuff 20 points!\n");
+                         	}
+                         }else {
+                        		System.out.println("\tSince you didn't answer the question as asked, the question doesn't count.\n");
+                        	}
+                         
+                         gamesLeft -= 1;
+                	 thirdFlying = false;
+                 } else {
+                	 System.out.println("\tThere are no more Flying questions for you to answer for house points!\n");
+                 }
+                 displayHousePoints();
      
          while(WhatToDo != 'g' && WhatToDo != 'c' && WhatToDo !='d' && WhatToDo !='p' && WhatToDo !='r')
          {                
                System.out.print(
-            		   "\n\n\tWhere would you like to go next?? (c)harms, (d)efense against the dark arts, (f)lying lessons,\n"
+            		   "\n\n\tWhere would you like to go next?? (c)harms, (d)efense against the dark arts, (p)otions,\n"
                        		+ "\tto the (g)reat hall, or back to the common (r)oom?\n");
            
                WhatToDo = CIN(); 
@@ -874,6 +1282,11 @@ public class Events {
     	 int n = RAND.nextInt(4) + 1;
     	 return n;
      } 
-     
+     void displayHousePoints(){
+    	 System.out.println("\tGryffindor has " + gryffPoints + " points!\n");
+    	 System.out.println("\tSlytherin has " + slythPoints + " points!\n");
+    	 System.out.println("\tRavenclaw has " + ravePoints + " points!\n");
+    	 System.out.println("\tHufflepuff has " + huffPoints + " points!\n"); 	 
+     }
      
 }
